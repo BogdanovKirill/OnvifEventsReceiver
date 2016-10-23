@@ -1,0 +1,83 @@
+﻿<Window x:Class="EventsReceiver.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:validationRules="clr-namespace:EventsReceiver.ValidationRules"
+        mc:Ignorable="d"
+        Title="Onvif Events Receiver" Height="350" Width="525" WindowStartupLocation="CenterScreen"
+        DataContext="{Binding MainWindowViewModel, Source={StaticResource ViewModelLocator}}">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <DockPanel>
+                <TextBlock Foreground="Red" FontSize="20">!</TextBlock>
+                <AdornedElementPlaceholder/>
+            </DockPanel>
+        </ControlTemplate>
+        <Style x:Key="TextBoxInError" TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                        Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Column="0">
+                <Label Content="Device address:"></Label>
+                <TextBox
+                         Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                         Style="{StaticResource TextBoxInError}"
+                         VerticalContentAlignment="Center">
+                    <Binding Path="DeviceAddress" UpdateSourceTrigger="PropertyChanged" >
+                        <Binding.ValidationRules>
+                            <validationRules:AddressValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox>
+            </DockPanel>
+            <DockPanel Grid.Column="1">
+                <Label Content="Login:"></Label>
+                <TextBox Text="{Binding Login}" VerticalContentAlignment="Center"></TextBox>
+            </DockPanel>
+            <DockPanel Grid.Column="2">
+                <Label Content="Password:"></Label>
+                <TextBox Text="{Binding Password}" VerticalContentAlignment="Center"></TextBox>
+            </DockPanel>
+        </Grid>
+        <DockPanel Grid.Row="1">
+            <Label DockPanel.Dock="Top" Content="Device events:"></Label>
+            <ListView ItemsSource="{Binding Events}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Timestamp" DisplayMemberBinding="{Binding Timestamp}" Width="150"/>
+                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Message}" Width="350"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+        <DockPanel Grid.Row="2">
+            <Label DockPanel.Dock="Top" Content="Connection log:"></Label>
+            <ListBox ItemsSource="{Binding ConnectionLog}">
+            </ListBox>
+        </DockPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button Content="Start" Width="200" Margin="4" Command="{Binding StartClickCommand}"></Button>
+            <Button Content="Stop" Width="200" Margin="4" Command="{Binding StopClickCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

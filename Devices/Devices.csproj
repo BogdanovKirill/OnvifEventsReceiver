@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C6D5EF3-75DD-44F4-B349-B019532E2DFD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Devices</RootNamespace>
+    <AssemblyName>Devices</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DeviceEventReceiverFactory.cs" />
+    <Compile Include="Onvif\Behaviour\CustomAddressHeader.cs" />
+    <Compile Include="Onvif\Behaviour\CustomEndpointBehavior.cs" />
+    <Compile Include="Onvif\Behaviour\CustomMessageInspector.cs" />
+    <Compile Include="Onvif\IOnvifClientFactory.cs" />
+    <Compile Include="Onvif\OnvifEventReceiver.cs" />
+    <Compile Include="Onvif\Security\DigestSecurityHeader.cs" />
+    <Compile Include="Onvif\Security\SecurityToken.cs" />
+    <Compile Include="Onvif\OnvifClientFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\Onvif.Contracts.DeviceManagement\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\Onvif.Contracts.Events\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\b-2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\bf-2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\devicemgmt.wsdl" />
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.AddScopesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.BackupFile.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.BinaryData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.Capabilities.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.Certificate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.CertificateInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.CertificateStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.CreateCertificateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.CreateUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.DeleteCertificatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.DeleteDot1XConfigurationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.DeleteUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.DeviceServiceCapabilities.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.DiscoveryMode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.DNSInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.Dot11AvailableNetworks.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.Dot11Capabilities.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.Dot11Status.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.Dot1XConfiguration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.DynamicDNSInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetCACertificatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetCapabilitiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetCertificateInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetCertificatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetCertificatesStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetDeviceInformationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetDot11CapabilitiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetDot1XConfigurationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetDPAddressesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetEndpointReferenceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetNetworkInterfacesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetNetworkProtocolsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetPkcs10RequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetRelayOutputsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetScopesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetServicesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetStorageConfigurationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetSystemBackupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetSystemUrisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetSystemUrisResponseExtension.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.GetWsdlUrlResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.HostnameInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.IPAddressFilter.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.LoadCACertificatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.LoadCertificatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.LoadCertificateWithPrivateKeyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.NetworkGateway.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.NetworkHost.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.NetworkInterface.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.NetworkProtocol.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.NetworkZeroConfiguration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.NTPInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.RelayOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.RemoteUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.RemoveScopesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.RestoreSystemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.ScanAvailableDot11NetworksResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.Scope.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.Service.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SetCertificatesStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SetDNSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SetDPAddressesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SetDynamicDNSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SetHostnameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SetNetworkDefaultGatewayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SetNetworkProtocolsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SetNTPResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SetScopesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SetUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.StartFirmwareUpgradeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.StartSystemRestoreResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.StorageConfiguration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SupportInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SystemDateTime.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SystemLog.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.SystemLogUri.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Devices.Onvif.Contracts.DeviceManagement.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\include.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\onvif.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\t-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\ws-addr.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\xmlmime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\b-2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\bf-2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.Capabilities.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.CreatePullPointResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.CreatePullPointResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.CreatePullPointSubscriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.DestroyPullPointResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.DestroyPullPointResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.EndpointReferenceType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.GetCurrentMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.GetCurrentMessageResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.GetEventPropertiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.GetMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.GetMessagesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.NotificationMessageHolderType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.PauseSubscriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.PauseSubscriptionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.PullMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.RenewResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.RenewResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.ResumeSubscriptionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.ResumeSubscriptionResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.SeekResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.SubscribeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.SubscribeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.TopicSetType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.UnsubscribeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\Devices.Onvif.Contracts.Events.UnsubscribeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\event-vs.wsdl" />
+    <None Include="Service References\Onvif.Contracts.Events\r-2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\t-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\ws-addr.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Onvif.Contracts.Events\WS-BaseNotification.wsdl" />
+    <None Include="Service References\Onvif.Contracts.Events\WS-Resource.wsdl" />
+    <None Include="Service References\Onvif.Contracts.Events\xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{df0a93d4-4fa2-480f-9351-2af6a9d06c96}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Onvif.Contracts.DeviceManagement\" />
+    <WCFMetadataStorage Include="Service References\Onvif.Contracts.Events\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Onvif.Contracts.DeviceManagement\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Onvif.Contracts.Events\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Onvif.Contracts.Events\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Onvif.Contracts.Events\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
