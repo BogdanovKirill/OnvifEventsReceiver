@@ -1,8 +1,8 @@
 # Onvif Events Receiver
 C# client for getting events from ONVIF devices using pull point subscription method
 
-Features:
--.NET 4.6
--async/await paradigm
--pull point subscription method
--unit tests (NUnit + Moq)
+# Features:
+<br />-.NET 4.6
+<br />-async/await paradigm
+<br />-pull point subscription method
+<br />-unit tests (NUnit + Moq)
