@@ -69,7 +69,7 @@ namespace Devices.Onvif.Security
         private DateTime GetCurrentServerTime()
         {
             long timestamp = Stopwatch.GetTimestamp();
-            long elapsedMilliseconds = timestamp - _createdTimestamp * 1000 / Stopwatch.Frequency;
+            long elapsedMilliseconds = (timestamp - _createdTimestamp) * 1000 / Stopwatch.Frequency;
 
             if (elapsedMilliseconds < 0)
             {
